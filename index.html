@@ -15,18 +15,18 @@
 	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 </head>
 <body>
-	<div id="game" class="container">
+	<div id="game" class="container" style="width:23em;">
 	  <div id="control">
 	  	<button v-on:click="resetBoard" class="btn btn-primary">New Game</button>
 	  	<span style="margin-left: 8em;">Score: {{ score }}</span>
 	  </div>
-	  <div v-if="gameOver" class="modal">
+	  <div v-if="gameOver" class="modalOverlay">
           <h1>Game Over!</h1>
-          <a class="btn btn-success" @click="resetBoard()">Restart</a>
-       </div>
-       <div v-if="success" class="modal">
-          <h1>Success!</h1>
           <a class="btn btn-danger" @click="resetBoard()">Try again</a>
+       </div>
+       <div v-if="success" class="modalOverlay">
+          <h1>Success!</h1>
+          <a class="btn btn-success" @click="resetBoard()">Restart</a>
        </div>	
 	  <div id="board" class="board text-center">
 	  	<div v-for="row in board" class="row">

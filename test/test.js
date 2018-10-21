@@ -97,7 +97,7 @@ describe('swipe Test', function () {
 			[4, 8, 2, 8],
 			[2, 2, 4, 4],
 			[4, 4, 8, 8]
-			],"UP").join());
+			],"UP").updated_state.join());
 	    });
 	it('Left Swipe Check', function () {
 	        assert.equal([
@@ -110,7 +110,7 @@ describe('swipe Test', function () {
 			[4, 8, 2, 8],
 			[2, 2, 4, 4],
 			[4, 4, 8, 8]
-			],"LEFT").join());
+			],"LEFT").updated_state.join());
 	    });
 	it('Right Swipe Check', function () {
 	        assert.equal([
@@ -123,7 +123,7 @@ describe('swipe Test', function () {
 			[4, 8, 2, 8],
 			[2, 2, 4, 4],
 			[4, 4, 8, 8]
-			],"RIGHT").join());
+			],"RIGHT").updated_state.join());
 	    });
 	it('Down Swipe Check', function () {
 	        assert.equal([
@@ -136,7 +136,7 @@ describe('swipe Test', function () {
 			[4, 4, 2, 8],
 			[2, 2, 0, 8],
 			[4, 4, 8, 8]
-			],"DOWN").join());
+			],"DOWN").updated_state.join());
 	    });
 	it('Up Swipe Check', function () {
 	        assert.equal([
@@ -149,7 +149,7 @@ describe('swipe Test', function () {
 			[4, 4, 2, 8],
 			[2, 2, 0, 8],
 			[4, 4, 8, 8]
-			],"UP").join());
+			],"UP").updated_state.join());
 	    });
 	it('Only one merge per move - UP', function () {
 	        assert.equal([
@@ -162,7 +162,7 @@ describe('swipe Test', function () {
 			[4, 0, 4, 8],
 			[8, 0, 0, 8],
 			[0, 16, 8, 8]
-			],"UP").join());
+			],"UP").updated_state.join());
 	    });
 	it('Only one merge per move - DOWN', function () {
 	        assert.equal([
@@ -175,7 +175,7 @@ describe('swipe Test', function () {
 			[4, 0, 4, 8],
 			[8, 0, 0, 8],
 			[0, 16, 8, 8]
-			],"DOWN").join());
+			],"DOWN").updated_state.join());
 	    });
 	it('Only one merge per move - LEFT', function () {
 	        assert.equal([
@@ -188,7 +188,7 @@ describe('swipe Test', function () {
 			[4, 0, 4, 8],
 			[8, 0, 0, 8],
 			[0, 16, 8, 8]
-			],"LEFT").join());
+			],"LEFT").updated_state.join());
 	    });
 	it('Only one merge per move - RIGHT', function () {
 	        assert.equal([
@@ -201,6 +201,6 @@ describe('swipe Test', function () {
 			[4, 0, 4, 8],
 			[8, 0, 0, 8],
 			[0, 16, 8, 8]
-			],"RIGHT").join());
+			],"RIGHT").updated_state.join());
 	    });
 });	

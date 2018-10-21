@@ -158,3 +158,5 @@ let swipe = (board,direction) => {
 			success: success};
 };
 
+module.exports = swipe;
+

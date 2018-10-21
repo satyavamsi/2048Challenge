@@ -41,4 +41,5 @@ let placenew = (board) => {
 
  };
 
+module.exports = placenew;
 

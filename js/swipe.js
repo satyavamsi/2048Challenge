@@ -2,6 +2,10 @@
 
 let swipe = (board,direction) => {
 
+	let moved = false;
+	let score = 0;
+	let success = false;
+
 	let findFarthestPosition =  (cell, vector) => {
 		var previous;
 		do {
@@ -65,7 +69,8 @@ let swipe = (board,direction) => {
 	let moveCell = (cell, position) => {
 		if (cell.row === position.row && cell.col === position.col) {
 			return ;
-		} else {		
+		} else {
+			moved = true;		
 			board[position.row][position.col] = board[cell.row][cell.col];
 			board[cell.row][cell.col] = 0;
 			return ;
@@ -75,9 +80,14 @@ let swipe = (board,direction) => {
 
 	let mergeCells = (curr, next) => {
 		board[next.row][next.col] = board[curr.row][curr.col]*2;
+		if(board[next.row][next.col] == 2048){
+			success = true
+		}
+		score += board[next.row][next.col];
 		// below line will create a barrier for the next move that is 
 		// even if there is a matching cell it won't cross this cell
 		// so it ensures only one merge is possible
+		moved = true;
 		board[next.row - vector.x][next.col -vector.y] = -1; 
 		if(!(next.row - vector.x == curr.row && next.col - vector.y == curr.col)){
 			board[curr.row][curr.col] = 0;
@@ -142,7 +152,9 @@ let swipe = (board,direction) => {
 		}
 	}
 
-	return board;
+	return {updated_state: board,
+	 		moved : moved, 
+	 		score: score,
+			success: success};
 };
 
-module.exports = swipe;

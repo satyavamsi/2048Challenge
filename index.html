@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>2048</title>
+		<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="./css/style.css">
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+	<!-- Latest compiled JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="./js/placenew.js"></script>
+	<script src="./js/swipe.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+	<div id="game" class="container">
+	  <div id="control">
+	  	<button v-on:click="resetBoard" class="btn btn-primary">New Game</button>
+	  	<span style="margin-left: 8em;">Score: {{ score }}</span>
+	  </div>
+	  <div v-if="gameOver" class="modal">
+          <h1>Game Over!</h1>
+          <a class="btn btn-success" @click="resetBoard()">Restart</a>
+       </div>
+       <div v-if="success" class="modal">
+          <h1>Success!</h1>
+          <a class="btn btn-danger" @click="resetBoard()">Try again</a>
+       </div>	
+	  <div id="board" class="board text-center">
+	  	<div v-for="row in board" class="row">
+	  		<div v-for="tile in row" class="tile col-sm-3">
+	  			<span style="color:black;">{{tile == 0 ? "":tile}}</span>
+	  		</div>	
+	  	</div>
+	  </div>
+	</div>
+	
+	<script src="./js/game.js"></script>
+	
+</body>
+
+
+</html>

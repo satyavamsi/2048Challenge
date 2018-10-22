@@ -67,13 +67,45 @@ var game = new Vue({
             	this.board = []
             	this.board.push(...updated_board.updated_state);
         	}
+
+          // Checking if any moves are there
         	if(!this.moved && !this.getEmptyCells(this.board)){
-        		if(!(swipe(this.board,"UP").moved ||
-        			swipe(this.board,"DOWN").moved ||
-        			swipe(this.board,"RIGHT").moved ||
-        			swipe(this.board,"LEFT").moved)){
-        			this.gameOver = true
-        		}
+        		 var testMove = false;
+             var size = this.board.length
+             for(var i=0;i<size;i++){
+                for(var j=0;j<size;j++){
+                  if(i+1 <size){
+                    if(this.board[i][j] == this.board[i+1][j]){
+                      testMove = true;
+                      break;
+                    }
+                  }
+                  if(i-1 >= 0){
+                    if(this.board[i][j] == this.board[i-1][j]){
+                      testMove = true;
+                      break;
+                    }
+                  }
+                  if(j+1 <size){
+                    if(this.board[i][j] == this.board[i][j+1]){
+                      testMove = true;
+                      break;
+                    }
+                  }
+                  if(j-1 >= 0){
+                    if(this.board[i][j] == this.board[i][j-1]){
+                      testMove = true;
+                      break;
+                    }
+                  }
+                }
+                if(testMove){
+                  break;
+                }
+             }
+             if(!testMove){
+                this.gameOver = true;
+              }
         	}
 	},
     registerControl: function() {

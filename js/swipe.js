@@ -80,14 +80,16 @@ let swipe = (board,direction) => {
 
 	let mergeCells = (curr, next) => {
 		board[next.row][next.col] = board[curr.row][curr.col]*2;
-// 		if(board[next.row][next.col] == 2048){
-// 			success = true
-// 		}
+		if(board[next.row][next.col] == 2048){
+			success = true
+		}
+		
 		score += board[next.row][next.col];
+		moved = true;
 		// below line will create a barrier for the next move that is 
 		// even if there is a matching cell it won't cross this cell
 		// so it ensures only one merge is possible
-		moved = true;
+		
 		board[next.row - vector.x][next.col -vector.y] = -1; 
 		if(!(next.row - vector.x == curr.row && next.col - vector.y == curr.col)){
 			board[curr.row][curr.col] = 0;
@@ -148,9 +150,6 @@ let swipe = (board,direction) => {
 		for(var col=0; col < board[0].length; col++){
 			if(board[row][col] == -1){
 				board[row][col] = 0;
-			}
-			if(board[row][col] == 2048){
-				success = true;
 			}
 		}
 	}

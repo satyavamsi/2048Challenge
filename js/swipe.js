@@ -149,6 +149,9 @@ let swipe = (board,direction) => {
 			if(board[row][col] == -1){
 				board[row][col] = 0;
 			}
+			if(board[next.row][next.col] == 2048){
+				success = true;
+			}
 		}
 	}
 

@@ -1,5 +1,8 @@
 # 2048Challenge
 
+https://challenge2048.herokuapp.com/
+
+
 This is 2048 game implemented using Vue as front-end
 
 Clone the project and open index.html and play
